@@ -1,6 +1,6 @@
 import { prisma } from "../helpers/utils.js";
 
-export const index = async (req, res) => {
+export const index = async (_, res) => {
   try {
     let users = await prisma.user.findMany({
       select: { email: true },
