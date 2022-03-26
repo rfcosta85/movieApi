@@ -1,5 +1,6 @@
 import userRoutes from "./users-routes.js";
 import authRoutes from "./auth-routes.js";
+import moviesRoutes from "./movies-routes.js";
 
 export const renderRoutes = [
   {
@@ -11,12 +12,13 @@ export const renderRoutes = [
   },
   ...Object.values(userRoutes),
   ...Object.values(authRoutes),
+  ...Object.values(moviesRoutes),
 ];
 
-export default (fastify, opts, next) => {
+export default (fastify, _, next) => {
   fastify.decorateRequest("user", null);
 
-  fastify.addHook("onRequest", (req, res, next) => {
+  fastify.addHook("onRequest", (req, _, next) => {
     console.log("onRequest");
     req.user = null;
     next();
