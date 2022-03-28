@@ -24,9 +24,9 @@ export const getMovie = async (req, reply) => {
 };
 
 export const create = async (req, reply) => {
-  const {
-    user: { id: user_id },
-  } = req;
+  const { id: user_id } = req.user;
+
+  console.log(user_id);
   const { title, description, gender_id } = req.body;
 
   try {
@@ -39,10 +39,10 @@ export const create = async (req, reply) => {
             id: parseInt(gender_id),
           },
         },
-      },
-      user: {
-        connect: {
-          id: parseInt(user_id),
+        user: {
+          connect: {
+            id: parseInt(user_id),
+          },
         },
       },
       select: {

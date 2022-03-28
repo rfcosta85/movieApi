@@ -14,7 +14,7 @@ export const prisma = new PrismaClient();
 export const hashPassword = (password) => {
   let salt = genSaltSync(10);
   return new Promise((res) => {
-    hash(password, salt, (err, saltedPassword) => {
+    hash(password, salt, (_, saltedPassword) => {
       res(saltedPassword);
     });
   });
