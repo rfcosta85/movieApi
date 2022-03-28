@@ -30,4 +30,11 @@ export default {
     preHandler: [validateRequest],
     handler: GenderController.update,
   },
+
+  UpdatePutMovie: {
+    method: "PUT",
+    url: "/genders/:id",
+    preHandler: [validateRequest],
+    handler: GenderController.update,
+  },
 };
