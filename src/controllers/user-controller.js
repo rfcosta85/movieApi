@@ -63,3 +63,18 @@ export const update = async (req, reply) => {
     reply.status(500).send(error);
   }
 };
+
+export const updateAtributes = async (req, reply) => {
+  const { id } = req.params;
+  const data = req.body;
+  try {
+    const movie = await prisma.user.update({
+      where: { id: parseInt(id) },
+      data,
+    });
+    reply.status(200).send(movie);
+  } catch (error) {
+    console.error(error);
+    reply.status(500).send(error);
+  }
+};

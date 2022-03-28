@@ -26,4 +26,10 @@ export default {
     url: "/users/:id",
     handler: UserController.remove,
   },
+
+  updateUsersAtributes: {
+    method: "PATCH",
+    url: "/users/:id",
+    handler: UserController.updateAtributes,
+  },
 };
