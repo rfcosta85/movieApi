@@ -44,6 +44,7 @@ export default {
     preHandler: [validateRequest],
     handler: MovieController.create,
   },
+
   update: {
     method: "PUT",
     url: "/movies/:id",
